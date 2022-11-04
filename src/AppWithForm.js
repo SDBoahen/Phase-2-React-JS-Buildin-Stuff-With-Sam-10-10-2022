@@ -1,36 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
 
-//             📙            📚📚📚
+//          📙            📚📚📚
 // import { useState } from "react"
 import React, { useState } from "react"
 
+
+
 import ourCohortArray from './data/cohortArrayOfObjects.js';
-import NewPersonForm from './components/NewPersonForm.js';
-
-
 // console.log( ourCohortArray )
 
 
-function App() {  ////  js
+function AppWithForm() {  ////  js
 
 
   // const [ arrayOfPeopleObjs , setArrayOfPeopleObjs ] = useState( [] )
   const [ arrayOfPeopleObjs , setArrayOfPeopleObjs ]    = useState( ourCohortArray )
     console.log( "STATE OF arrayOfPeopleObjs: " , arrayOfPeopleObjs )
 
+
+
   const peopleToMap = arrayOfPeopleObjs.map(  ( eachPersonObj )=>{ 
 
     // console.log( eachPersonObj )
 
-    // **** Component/Card - PersonCard
     return( <h2>{ eachPersonObj.name }</h2> )
     
   }  )
 
 
   const [ stateOfPeopleListShowing , setStateOfPeopleListShowing ] = useState( true )
-    console.log( "State of stateOfPeopleListShowing: " , stateOfPeopleListShowing )
+  console.log( "State of stateOfPeopleListShowing: " , stateOfPeopleListShowing )
 
   const toggleList = () => { 
 
@@ -43,16 +43,6 @@ function App() {  ////  js
 
 
   // let theStateOfInputFieldValue = ""
-  //           sendUpSomething( "You're Going Better Than You Think!" )
-  const someElevatorFunction =( somethingSentBackUp )=>{  
-
-    console.log( somethingSentBackUp )
-
-    // do something
-
-  }
-
-
   const handleNewPersonSubmit = ( synthEvent ) =>{ 
 
     synthEvent.preventDefault() 
@@ -65,7 +55,7 @@ function App() {  ////  js
       name: whatTheUserTypedForName,
       role: whatTheUserTypedForRole
 
-  }
+    }
 
     setArrayOfPeopleObjs(  [ ...arrayOfPeopleObjs , newPersonObj  ]  )  // Top of the List
     // setArrayOfPeopleObjs(  [ newPersonObj , ...arrayOfPeopleObjs ]  )  // Bottom of the List
@@ -74,7 +64,6 @@ function App() {  ////  js
     synthEvent.target.reset()
 
   }    
-  
   ////  js
   return (
     <div className="App">
@@ -86,13 +75,15 @@ function App() {  ////  js
       <br/><br/>
 
 
-      {/* <  Component   whatYouWantToReferToThisAs={ ^ whatTheThingIsHERE ^ }     />   */}
-      < NewPersonForm  
+      <form onSubmit={ handleNewPersonSubmit } >
 
-        formFunctionProp={ handleNewPersonSubmit }  
-        sendUpSomething={ someElevatorFunction } 
-        
-      />
+        < input id={"personName"} name={"newPersonName"} />
+        < input id={"personRole"} name={"newPersonRole"} />
+
+        <input type='submit' />
+        {/* <button type='submit'> Woobly </button> */}
+
+      </form>
 
 
       <br/><br/>
@@ -122,43 +113,14 @@ function App() {  ////  js
     </div>
   );
 }
-export default App;
+export default AppWithForm;
 
 
 
 /* 
 
 
-
-
   <App />
-   L>
-    < AttendancePage />
-      L>
-        < NewPersonForm /> < AttendanceList />
-
-
-
-
-                        <App />
-   L>
-                   < AttendancePage />  state[] ♾ fetch()
-      L>
-           < NewPersonForm />  < AttendanceList /> 
-
-
-
-
-
-
-
-
-
-  <App />
-   L>
-    < AttendancePage />
-      L>
-        < NewPersonForm />
 
 
 
