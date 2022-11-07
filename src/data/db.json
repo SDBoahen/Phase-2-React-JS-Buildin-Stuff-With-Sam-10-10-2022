@@ -1,0 +1,21 @@
+{
+  "ourCohortArray": [
+    
+    {
+        "id": 1,
+        "name": "Sam",
+        "role": "Instructor"
+    },
+
+    {
+      "id": 20,
+      "name": "Adam",
+      "role": "Instructor"
+    },
+    {
+      "id": 33,
+      "name": "DAGOAT Mustafa",
+      "role": "Coach"
+    }
+  ]
+}

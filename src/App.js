@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
-//             📙            📚📚📚
+//             📙📙           📚📚📚
 // import { useState } from "react"
-import React, { useState } from "react"
+// import { useEffect } from "react"
+import React, { useState , useEffect } from "react"
 
 import ourCohortArray from './data/cohortArrayOfObjects.js';
 import NewPersonForm from './components/NewPersonForm.js';
@@ -13,6 +14,59 @@ import NewPersonForm from './components/NewPersonForm.js';
 
 
 function App() {  ////  js
+
+
+  
+  // const [ v , f ] = useState( initialValue )
+  const [ dataFromFetch , setDataFromFetch ] = useState( [] )
+
+
+
+  // useEffect(  ()=>{} , [] )
+  useEffect(  ()=>{
+
+    fetch( 'http://localhost:3000/ourCohortArray' )
+    .then( (response) => response.json() )
+    .then( (data) => setDataFromFetch(data) );
+
+  } , [] )  // We Want This To Happen Upon Mounting ( The COmponent Makes it To The DOM )
+
+
+
+
+
+  //  function handleDelete(){
+
+  //   // filterLogic
+
+  //   fetch( `http://localhost:3000/ourCohortArray/${9}` , { method: "DELETE" } )
+  //   .then( r => r.json() )
+  //   .then( data => setDataFromFetch( [ ...filteredArray ] ) )
+  //   // .then( console.log )
+
+  //  }
+
+  //  <button onClick={ handleDelete } ></button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   // const [ arrayOfPeopleObjs , setArrayOfPeopleObjs ] = useState( [] )
@@ -179,6 +233,17 @@ export default App;
 /*
 
 
+
+
+
+
+
+  // fetch( 'http://localhost:3000/ourCohortArray' )
+  // .then( (response) => response.json() )
+  // .then( (data) => setDataFromFetch(data) );
+
+  // .then( (data) => { setDataFromFetch(data) } );
+  // .then( (data) => console.log(data)   );
 
 
 
